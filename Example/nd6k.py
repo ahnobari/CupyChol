@@ -25,7 +25,7 @@ if __name__ == '__main__':
     # Solve the system
     print("Solving the system")
     start = time.time()
-    x = cuchol_solve(A,b, reorder=False)
+    x = cuchol_solve(A_cupy,b, reorder=False)
     end = time.time()
     residual = cp.linalg.norm(A_cupy @ x - b)
     print("Residual:", residual)
