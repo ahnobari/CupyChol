@@ -58,6 +58,8 @@ def get_cuda_path():
     else:
         _cuda_path = None
 
+    print('CUDA_PATH:', _cuda_path)
+    
     return _cuda_path
 
 ext_modules = [
@@ -66,7 +68,8 @@ ext_modules = [
         ['cupychol/cupy_chol.cpp'],
         include_dirs=[
             get_pybind_include(),
-            get_pybind_include(user=True)
+            get_pybind_include(user=True),
+            get_cuda_path() + '/include'
         ],
         libraries=['cusolver', 'cusparse', 'cudart'],
         library_dirs=[get_cuda_path() + '/lib64'],
@@ -76,7 +79,7 @@ ext_modules = [
 
 setup(
     name='cupy_chol',
-    version='0.1',
+    version='0.1.4',
     author='Amin Heyrani Nobari',
     author_email='',
     description='cupychol: Solve linear systems using Cholesky decomposition with CuPy arrays on GPU.',

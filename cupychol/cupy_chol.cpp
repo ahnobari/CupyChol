@@ -1,5 +1,4 @@
 #include <pybind11/pybind11.h>
-#include <cuda_runtime.h>
 #include <cusolverSp.h>
 #include <cusparse_v2.h>
 #include <iostream>
